@@ -7,6 +7,11 @@ let users = [];
 
 app.use(express.json());
 
+app.use((req,res,next) => {
+console.log('Request URL:',req.url);
+next();
+})
+
 app.get('/api/echo',(req,res) => {
     res.send('Привет,Redev!')
 })
